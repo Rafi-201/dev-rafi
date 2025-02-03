@@ -1,0 +1,62 @@
+dev-rafi/
+├── public/
+│   └── index.html
+│   └── favicon.ico
+│   └── ...
+├── src/
+│   ├── components/
+│   │   ├── Header/
+│   │   │   ├── Header.tsx
+│   │   │   └── Header.module.css  // Or just rely on Tailwind
+│   │   ├── Hero/
+│   │   │   ├── Hero.tsx
+│   │   │   └── Hero.module.css
+│   │   ├── Skills/
+│   │   │   ├── Skills.tsx
+│   │   │   └── Skills.module.css
+│   │   ├── Projects/
+│   │   │   ├── Projects.tsx
+│   │   │   └── Projects.module.css
+│   │   ├── Services/
+│   │   │   ├── Services.tsx
+│   │   │   └── Services.module.css
+│   │   ├── Contact/
+│   │   │   ├── Contact.tsx
+│   │   │   └── Contact.module.css
+│   │   ├── Footer/
+│   │   │   ├── Footer.tsx
+│   │   │   └── Footer.module.css
+│   │   ├── Button/
+│   │   │   ├── Button.tsx
+│   │   │   └── Button.module.css
+│   │   ├── types.d.ts
+│   │   ├── ...
+│   ├── pages/
+│   │   ├── Home/
+│   │   │   ├── Home.tsx
+│   │   │   └── Home.module.css
+│   │   └── ...
+│   ├── assets/
+│   │   ├── images/
+│   │   │   ├── profile.png
+│   │   │   ├── project1.jpg
+│   │   │   └── ...
+│   │   ├── icons/
+│   │   │   ├── react.svg
+│   │   │   └── ...
+│   │   └── fonts/
+│   │       └── ...
+│   ├── context/
+│   │   └── ThemeContext.tsx
+│   ├── styles/             // Or just use index.css
+│   │   └── globals.css    // Tailwind directives and global styles
+│   ├── App.tsx
+│   ├── index.tsx
+│   ├── react-app-env.d.ts
+│   └── ...
+├── .gitignore
+├── package.json
+├── postcss.config.js     // For Tailwind
+├── tailwind.config.js    // For Tailwind
+├── tsconfig.json
+└── README.md
