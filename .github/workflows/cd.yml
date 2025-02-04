@@ -1,0 +1,46 @@
+name: Continuous Deployment to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # Trigger the workflow on push to the 'master' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.18.2'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the project
+      - name: Build the project
+        run: npm run build
+
+      # Step 5: Create a gh-pages branch and deploy the build
+      - name: Deploy to GitHub Pages
+        run: |
+          git checkout --orphan gh-pages  # Create orphan branch
+          git rm -rf .  # Remove all files in this branch
+          cp -r dist/* .  # Copy the contents of the dist folder to the root
+          git add .  # Stage changes
+          git commit -m 'Deploy to GitHub Pages'  # Commit changes
+          git push --force origin gh-pages  # Push to gh-pages branch
+
+      # Optional: Configure GitHub Pages Source (for automatic setup)
+      - name: Configure GitHub Pages Source
+        run: |
+          curl -X POST -u "Rafi-201:${{ secrets.GITHUB_TOKEN }}" \
+          -d '{"source": {"branch": "gh-pages", "path": "/"}}' \
+          https://api.github.com/repos/${{ github.repository }}/pages
