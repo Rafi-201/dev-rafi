@@ -81,24 +81,25 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     needs: build
+    if: github.event_name == 'pull_request'  # Only run if it's a pull request event
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    
-    - name: Set up Git
-      run: |
-        git config user.name "rafi"
-        git config user.email "tanvir.hasan.rafi.00@gmail.com"
-    
-    - name: Merge PR into master
-      run: |
-        # Ensure we're on the master branch
-        git fetch origin master
-        git checkout master
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-        # Merge the PR branch into master (this assumes the PR is based on the correct branch)
-        git merge --no-ff ${{ github.head_ref }} -m "Auto-merged PR #${{ github.event.pull_request.number }}"
+      - name: Set up Git
+        run: |
+          git config user.name "rafi"
+          git config user.email "tanvir.hasan.rafi.00@gmail.com"
+    
+      - name: Merge PR into master
+        run: |
+          # Ensure we're on the master branch
+          git fetch origin master
+          git checkout master
 
-        # Push changes
-        git push origin master
+          # Merge the PR branch into master (this assumes the PR is based on the correct branch)
+          git merge --no-ff ${{ github.head_ref }} -m "Auto-merged PR #${{ github.event.pull_request.number }}"
+
+          # Push changes
+          git push origin master
