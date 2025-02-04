@@ -92,8 +92,8 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "rafi"
+          git config user.email "tanvir.hasan.rafi.00@gmail.com"
 
       - name: Merge PR into master
         env:
