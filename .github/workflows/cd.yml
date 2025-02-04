@@ -34,6 +34,11 @@ jobs:
           git checkout --orphan gh-pages  # Create orphan branch
           git rm -rf .  # Remove all files in this branch
           cp -r dist/* .  # Copy the contents of the dist folder to the root
+
+          # Configure Git user
+          git config user.email "tanvir.hasan.rafi.00@gmail.com"  # Or your desired email address.  This is a common practice for CI.
+          git config user.name "rafi"       # Or your desired name.
+
           git add .  # Stage changes
           git commit -m 'Deploy to GitHub Pages'  # Commit changes
           git push --force origin gh-pages  # Push to gh-pages branch
