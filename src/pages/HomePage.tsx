@@ -1,13 +1,17 @@
-import Info from "../components/home/Info"
+import Info from "../components/hero/Hero"
+import Projects from "../components/Projects/Projects"
+import SkillTabs from "../components/Skills/SkillTabs"
+import Contact from "../components/Contact/Contact"
+
 
 function HomePage() {
 
   return (
     <>
-      <p className="text-5xl">
-       Home Page
-      </p>
-      <Info></Info>
+      <Info />
+      <SkillTabs />
+      <Projects />
+      <Contact />
     </>
   )
 }

@@ -1,0 +1,104 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - master  # Trigger on push to the 'master' branch
+  pull_request:
+    branches:
+      - master  # Trigger on pull requests to 'master' branch
+
+jobs:
+  install-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.18.2'  # Match Node.js version in package.json
+
+      - name: Install dependencies
+        run: npm install 
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: install-dependencies
+
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules  # Cache the 'node_modules' directory
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}  # Use the hash of package-lock.json as the cache key
+          restore-keys: |
+            ${{ runner.os }}-node-modules-  # Fallback to previous cache keys if an exact match isn't found
+
+
+      # Run ESLint on the codebase
+      - name: Run ESLint
+        run: |
+          npm install eslint
+          npm run lint
+
+  build:
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules  # Cache the 'node_modules' directory
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}  # Use the hash of package-lock.json as the cache key
+          restore-keys: |
+            ${{ runner.os }}-node-modules-  # Fallback to previous cache keys if an exact match isn't found
+
+
+      # Build the project using Vite
+      - name: Build the project
+        run: npm run build
+  
+  merge:
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Git
+      run: |
+        git config user.name "rafi"
+        git config user.email "tanvir.hasan.rafi.00@gmail.com"
+    
+    - name: Merge PR into master
+      run: |
+        # Ensure we're on the master branch
+        git fetch origin master
+        git checkout master
+
+        # Merge the PR branch into master (this assumes the PR is based on the correct branch)
+        git merge --no-ff ${{ github.head_ref }} -m "Auto-merged PR #${{ github.event.pull_request.number }}"
+
+        # Push changes
+        git push origin master

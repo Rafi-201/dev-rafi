@@ -4,16 +4,24 @@
   "version": "0.0.0",
   "type": "module",
   "node-version": "v20.18.2",
+  "homepage": "https://Rafi-201.github.io/dev-rafi",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "git checkout --orphan gh-pages && git rm -rf . && cp -r dist/* . && git add . && git commit -m 'Deploy to GitHub Pages' && git push --force origin gh-pages"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.2",
+    "@mui/lab": "^6.0.0-beta.25",
+    "@mui/material": "^6.4.2",
     "@tailwindcss/vite": "^4.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-icons": "^5.4.0",
     "tailwindcss": "^4.0.3"
   },
   "devDependencies": {
@@ -21,7 +29,7 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.17.0",
+    "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
