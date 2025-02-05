@@ -49,8 +49,8 @@ jobs:
           git checkout --orphan gh-pages 
           git rm -rf .
           
-          # Add dist folder and other necessary files
-          git add dist/* 
+          # Add docs folder and other necessary files
+          git add docs/* 
 
           git commit -m 'Deploy to GitHub Pages'  # Commit changes
       
