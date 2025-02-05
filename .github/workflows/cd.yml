@@ -8,15 +8,18 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for pushing to the gh-pages branch
+
 
     steps:
       # Step 1: Checkout the repository code
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Step 2: Set up Node.js environment
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '20.18.2'
 
@@ -31,16 +34,35 @@ jobs:
       # Step 5: Create a gh-pages branch and deploy the build
       - name: Deploy to GitHub Pages
         run: |
-          git checkout --orphan gh-pages  # Create orphan branch
-          git rm -rf .  # Remove all files in this branch
-          cp -r dist/* .  # Copy the contents of the dist folder to the root
-          git add .  # Stage changes
-          git commit -m 'Deploy to GitHub Pages'  # Commit changes
-          git push --force origin gh-pages  # Push to gh-pages branch
+          # Check if the gh-pages branch exists remotely
+          if git ls-remote --exit-code origin gh-pages >/dev/null 2>&1; then
+            git push origin --delete gh-pages  
+            echo "Deleted gh-pages branch" 
+          else
+            echo "gh-pages branch does not exist, skipping deletion" #informational message
+          fi
+          
+          # Configure Git user
+          git config user.email "tanvir.hasan.rafi.00@gmail.com" 
+          git config user.name "rafi"  
+      
+          git checkout --orphan gh-pages 
+          git rm -rf .
+          
+          # Add dist folder and other necessary files
+          git add dist/* 
 
-      # Optional: Configure GitHub Pages Source (for automatic setup)
-      - name: Configure GitHub Pages Source
-        run: |
-          curl -X POST -u "Rafi-201:${{ secrets.GITHUB_TOKEN }}" \
-          -d '{"source": {"branch": "gh-pages", "path": "/"}}' \
-          https://api.github.com/repos/${{ github.repository }}/pages
+          git commit -m 'Deploy to GitHub Pages'  # Commit changes
+      
+      
+          git push --force origin gh-pages
+      
+
+
+      # Step 6: (Remove this step if you configured GitHub Pages manually)
+      #Optional: Configure GitHub Pages Source (for automatic setup)
+      # - name: Configure GitHub Pages Source
+      #   run: |
+      #     curl -X POST -u "Rafi-201:${{ secrets.GITHUB_TOKEN }}" \
+      #     -d '{"source": {"branch": "gh-pages", "path": "/"}}' \
+      #     https://api.github.com/repos/${{ github.repository }}/pages
