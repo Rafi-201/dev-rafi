@@ -61,8 +61,8 @@ jobs:
 
       # Step 6: (Remove this step if you configured GitHub Pages manually)
       #Optional: Configure GitHub Pages Source (for automatic setup)
-      # - name: Configure GitHub Pages Source
-      #   run: |
-      #     curl -X POST -u "Rafi-201:${{ secrets.GITHUB_TOKEN }}" \
-      #     -d '{"source": {"branch": "gh-pages", "path": "/"}}' \
-      #     https://api.github.com/repos/${{ github.repository }}/pages
+      - name: Configure GitHub Pages Source
+        run: |
+          curl -X POST -u "Rafi-201:${{ secrets.GITHUB_TOKEN }}" \
+          -d '{"source": {"branch": "gh-pages", "path": "/docs"}}' \
+          https://api.github.com/repos/${{ github.repository }}/pages

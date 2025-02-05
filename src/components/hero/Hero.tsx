@@ -12,8 +12,8 @@ function Info() {
             </div>
             <h2 className="text-2xl font-bold">Hello, I'm Rafi.</h2>
         </div>
-        <p className="mb-4">I'm a certified expert in Notion, helping busy people like you be more organized and productive.</p>
-        <p className="mb-4">I design and optimize Notion templates to be clutter-free, so you can focus on what's important and get more done.</p>
+        <p className="mb-4">A results-driven software engineer with a passion for building and optimizing scalable backend systems.</p>
+        <p className="mb-4">A backend expert specializing in high-performance microservices, API optimization, and cloud scalability. Proven ability to debug complex issues, fine-tune database queries, and enhance system efficiency. Passionate about building resilient architectures, supporting teams, and delivering impact at scale. Always pushing boundaries to solve hard problems with clean, efficient code.</p>
         <button className="bg-blue-500 hover:bg-blue-600 text-black px-4 py-2 rounded">
             Book a call
         </button>
