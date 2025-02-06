@@ -1,103 +1,109 @@
+import { Link, Github, Code, Award } from 'lucide-react'; // Import necessary icons
 
 const Projects = () => {
   const projects = [
     {
       title: 'Tennant',
-      description: 'Built and optimized backend for a high-traffic tenant management platform supporting real-time data processing.',
-      technologies: 'Node.js, Azure SQL, SQL Server, Azure Functions, Blob Storage, Service Bus Queues, IoT Event Hub, API Management, Key Vault, Logic Apps, Monitor & Application Insights',
+      description: 'Optimized backend for a tenant management platform with real-time data processing, supporting 10,000+ concurrent users.',
+      technologies: 'Node.js, Azure SQL, SQL Server, Azure Functions, Blob Storage, Service Bus, IoT Event Hub, Key Vault',
       role: 'Backend Developer',
       date: '2022 - Present',
-      link: 'https://example.com',
-      image: 'https://via.placeholder.com/400x200', // Add project image URL
+      link: 'https://iris.tennantco.com/',
       achievements: [
-        'Improved system performance by 40% through optimized database queries.',
-        'Implemented real-time data processing for 10,000+ concurrent users.',
-        'Integrated Azure services for seamless scalability.',
+        'Optimized database queries for 40% performance improvement.',
+        'Implemented real-time data processing for high traffic.',
+        'Integrated Azure services for scalability.',
       ],
     },
     {
-      title: 'COLORMAN',
-      description: 'Creator of a 2D mobile game (Unity 2D, C#, Android, iOS).',
+      title: 'DarkLife',
+      description: 'Developed a 2D mobile game with Unity and C#, optimized for both Android and iOS.',
       technologies: 'Unity 2D, C#, Android, iOS',
       role: 'Game Developer',
       date: '07/2020',
-      link: 'https://example.com',
-      image: 'https://via.placeholder.com/400x200', // Add project image URL
+      link: 'https://null577.itch.io/life',
       achievements: [
-        'Designed and developed a 2D mobile game with 50,000+ downloads.',
-        'Implemented in-app purchases and ads for monetization.',
-        'Optimized game performance for low-end devices.',
+        'Implemented in-app purchases and ads.',
+        'Optimized performance for low-end devices.',
       ],
     },
     {
       title: 'URL Shortener Web App',
-      description: 'Took an active role in the implementation of a distributed TinyURL service, overseeing unique short URL generation, efficient mapping retrieval, and user account-based access. Ensured robust system reliability and data integrity through proficient distributed system design.',
+      description: 'Built a scalable URL shortener service with Node.js and PostgreSQL, handling millions of requests daily.',
       technologies: 'Node.js, Express, PostgreSQL, Hashing Algorithms',
       role: 'Full Stack Developer',
       date: '2021 - 2022',
       link: 'https://example.com',
-      image: 'https://via.placeholder.com/400x200', // Add project image URL
       achievements: [
-        'Reduced URL retrieval time by 30% using efficient hashing algorithms.',
+        'Improved URL retrieval time by 30% with efficient hashing.',
         'Implemented user authentication and access control.',
-        'Designed a scalable architecture to handle 1M+ requests per day.',
+        'Designed a scalable architecture for 1M+ daily requests.',
       ],
     },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
+    <section className="py-12 bg-white">
+               <h2 className="text-4xl font-bold mb-8">Projects</h2>
+
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-bold mb-16 text-center text-gray-800">Projects</h2>
-        <div className="space-y-12">
+        {/* <h2 className="text-3xl font-bold text-center text-black mb-8">Projects</h2> */}
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative group"
+              className="bg-white rounded-lg hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-200"
             >
-              {/* Timeline Dot */}
-              <div className="absolute left-0 h-full w-4 flex justify-center">
-                <div className="h-4 w-4 bg-blue-600 rounded-full group-hover:bg-blue-700 transition-colors duration-300"></div>
+              {/* Project Header: Title, Date, Role */}
+              <div className="mb-4">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-lg font-semibold text-black">{project.title}</h3>
+                  <span className="text-xs text-gray-500">{project.date}</span>
+                </div>
+                <div className="text-xs text-gray-600">{project.role}</div>
               </div>
 
-              {/* Card Content */}
-              <div className="ml-8 bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-500 transform hover:-translate-y-2">
-                {/* Project Title and Date */}
-                <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-800">{project.title}</h3>
-                  <span className="text-gray-600 text-sm">{project.date}</span>
+              {/* Project Description */}
+              <div className="mb-4">
+                <div className="flex items-center space-x-2">
+                  <Code className="text-gray-600" size={16} />
+                  <strong className="text-sm text-black">Description:</strong>
                 </div>
+                <p className="text-sm text-gray-700 mt-1">{project.description}</p>
+              </div>
 
-                {/* Project Description */}
-                <p className="text-gray-600 mb-6">{project.description}</p>
-
-                {/* Technologies */}
-                <div className="mb-6">
-                  <strong className="text-gray-700">Technologies:</strong>
-                  <p className="text-gray-600 mt-1">{project.technologies}</p>
+              {/* Technologies Section */}
+              <div className="mb-4">
+                <div className="flex items-center space-x-2">
+                  <Link className="text-gray-600" size={16} />
+                  <strong className="text-sm text-black">Technologies:</strong>
                 </div>
+                <p className="text-xs text-gray-600 mt-1">{project.technologies}</p>
+              </div>
 
-                {/* Achievements */}
-                <div className="mb-6">
-                  <strong className="text-gray-700">Achievements:</strong>
-                  <ul className="list-disc list-inside text-gray-600 mt-1">
-                    {project.achievements.map((achievement, i) => (
-                      <li key={i} className="mb-1">{achievement}</li>
-                    ))}
-                  </ul>
+              {/* Achievements Section */}
+              <div className="mb-4">
+                <div className="flex items-center space-x-2">
+                  <Award className="text-gray-600" size={16} />
+                  <strong className="text-sm text-black">Key Achievements:</strong>
                 </div>
+                <ul className="list-disc list-inside text-xs text-gray-600 mt-1">
+                  {project.achievements.map((achievement, i) => (
+                    <li key={i}>{achievement}</li>
+                  ))}
+                </ul>
+              </div>
 
-                {/* Visit Project Button */}
-                <div className="text-center">
-                    <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block bg-blue-100 text-white px-8 py-3 rounded-full hover:bg-gray-900 transition-all duration-300 shadow-md hover:shadow-lg active:bg-blue-800"
-                        >
-                        View Details
-                    </a>
-                </div>
+              {/* View Project Button */}
+              <div className="mt-4 text-center">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-white text-white text-xs px-5 py-2 rounded-full hover:bg-gray-800 transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                  View Project
+                </a>
               </div>
             </div>
           ))}

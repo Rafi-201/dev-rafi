@@ -1,0 +1,28 @@
+/* Custom style for the ripped paper button effect */
+.ripped-paper-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripped-paper-button::before, .ripped-paper-button::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Top-left "ripped" corner */
+.ripped-paper-button::before {
+  top: -10px;
+  left: -10px;
+  transform: rotate(30deg);
+}
+
+/* Bottom-right "ripped" corner */
+.ripped-paper-button::after {
+  bottom: -10px;
+  right: -10px;
+  transform: rotate(-30deg);
+}
