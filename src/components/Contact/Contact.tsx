@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
               }}
             />
             <StyledTextField
-              label="Tell us about your project"
+              label="Tell me about your project"
               fullWidth
               margin="normal"
               multiline
