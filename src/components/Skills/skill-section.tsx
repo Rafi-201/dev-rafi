@@ -23,7 +23,10 @@ export default function SkillTabs() {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList
             onChange={handleChange}
-            aria-label="Skill Tabs"
+            variant="scrollable"
+            scrollButtons="auto"
+            aria-label="scrollable auto tabs example"
+            allowScrollButtonsMobile
             sx={{
               minHeight: 20,
               "& .MuiTab-root": {

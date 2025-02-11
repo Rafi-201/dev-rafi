@@ -11,8 +11,9 @@ function HomePage() {
     <>
       <Info />
       <SkillTabs />
-      <Experience />  
       <Projects />
+      <Experience />  
+      
       <Contact />
     </>
   )
