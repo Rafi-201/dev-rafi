@@ -1,68 +1,47 @@
-name: Continuous Deployment to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - master  # Trigger the workflow on push to the 'master' branch
+    branches: [master]
+  workflow_dispatch:
+
+# Allow one concurrent deployment; queued runs supersede in-progress ones.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Required for pushing to the gh-pages branch
-
-
     steps:
-      # Step 1: Checkout the repository code
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js environment
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '20.18.2'
+          cache: npm
 
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: npm install
+      - run: npm ci
 
-      # Step 4: Build the project
-      - name: Build the project
-        run: npm run build
+      - run: npm run build
 
-      # Step 5: Create a gh-pages branch and deploy the build
-      - name: Deploy to GitHub Pages
-        run: |
-          # Check if the gh-pages branch exists remotely
-          if git ls-remote --exit-code origin gh-pages >/dev/null 2>&1; then
-            git push origin --delete gh-pages  
-            echo "Deleted gh-pages branch" 
-          else
-            echo "gh-pages branch does not exist, skipping deletion" #informational message
-          fi
-          
-          # Configure Git user
-          git config user.email "tanvir.hasan.rafi.00@gmail.com" 
-          git config user.name "rafi"  
-      
-          git checkout --orphan gh-pages 
-          git rm -rf .
-          
-          # Add docs folder and other necessary files
-          git add docs/* 
+      - uses: actions/configure-pages@v5
 
-          git commit -m 'Deploy to GitHub Pages'  # Commit changes
-      
-      
-          git push --force origin gh-pages
-      
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
-
-      # Step 6: (Remove this step if you configured GitHub Pages manually)
-      #Optional: Configure GitHub Pages Source (for automatic setup)
-      - name: Configure GitHub Pages Source
-        run: |
-          curl -X POST -u "Rafi-201:${{ secrets.GITHUB_TOKEN }}" \
-          -d '{"source": {"branch": "gh-pages", "path": "/docs"}}' \
-          https://api.github.com/repos/${{ github.repository }}/pages
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b0b0c"/>
+
+  <g font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="96" y="140" font-family="ui-monospace, Menlo, monospace" font-size="17"
+          fill="#64646c" letter-spacing="3">DHAKA, BANGLADESH</text>
+
+    <text x="96" y="286" font-size="66" font-weight="500" fill="#ededee" letter-spacing="-1.5">Tanvir Hasan</text>
+    <text x="96" y="336" font-size="28" fill="#9a9aa2">Backend Software Engineer</text>
+
+    <text x="96" y="404" font-size="21" fill="#9a9aa2">
+      Event-driven, cloud-native systems on Azure — ingesting
+    </text>
+    <text x="96" y="436" font-size="21" fill="#9a9aa2">
+      millions of IoT events a day for US enterprise clients.
+    </text>
+
+    <line x1="96" y1="492" x2="1104" y2="492" stroke="#1f1f23" stroke-width="1"/>
+
+    <g font-family="ui-monospace, Menlo, monospace">
+      <text x="96"  y="536" font-size="24" fill="#ededee">3+</text>
+      <text x="96"  y="562" font-size="13" fill="#64646c">years</text>
+
+      <text x="348" y="536" font-size="24" fill="#ededee">Millions</text>
+      <text x="348" y="562" font-size="13" fill="#64646c">events per day</text>
+
+      <text x="600" y="536" font-size="24" fill="#ededee">55%</text>
+      <text x="600" y="562" font-size="13" fill="#64646c">faster SQL queries</text>
+
+      <text x="852" y="536" font-size="24" fill="#ededee">10+</text>
+      <text x="852" y="562" font-size="13" fill="#64646c">Azure services</text>
+    </g>
+
+    <text x="1104" y="140" text-anchor="end" font-family="ui-monospace, Menlo, monospace"
+          font-size="17" fill="#7c9fff" letter-spacing="3">TH</text>
+  </g>
+</svg>

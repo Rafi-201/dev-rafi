@@ -4,17 +4,12 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './', // Ensure all paths are relative (important for deployment)
+  // Relative paths keep the build working on a GitHub Pages project subpath
+  // and on a custom domain without a rebuild.
+  base: './',
   plugins: [react(), tailwindcss()],
   build: {
-    outDir: 'docs', // Output all files to the docs folder
-    rollupOptions: {
-      output: {
-        // This ensures that files will be placed directly in the docs folder, not in subfolders
-        assetFileNames: '[name][extname]', // Directly place assets in docs folder
-        chunkFileNames: '[name].js', // Directly place chunked JS in docs folder
-        entryFileNames: '[name].js', // Directly place entry JS in docs folder
-      }
-    },
-  }
+    // Default hashed filenames in dist/assets — needed for cache busting.
+    outDir: 'dist',
+  },
 })

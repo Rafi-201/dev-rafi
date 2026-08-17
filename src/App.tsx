@@ -1,19 +1,33 @@
-import Footer from './components/Footer/Footer'
-import HomePage from './pages/HomePage'
+import Nav from "./components/Nav";
+import Hero from "./components/Hero";
+import Work from "./components/Work";
+import Experience from "./components/Experience";
+import Skills from "./components/Skills";
+import Writing from "./components/Writing";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import { blogIsLive } from "./data/posts";
 
-function App() {
-  // const [count, setCount] = useState(0)
-
+export default function App() {
   return (
     <>
-        <div className="w-screen flex justify-center sm:px-4 lg:px-10 bg-gray-100">
-          <div className="w-full max-w-4xl p-6 bg-white shadow-lg rounded-lg">
-            <HomePage />
-            <Footer />
-          </div>
-        </div>
+      <a
+        href="#work"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#07080c]"
+      >
+        Skip to content
+      </a>
+      <Nav />
+      <main>
+        <Hero />
+        <Work />
+        <Experience />
+        <Skills />
+        {/* Hidden until the blog clears its post threshold — see content/README.md */}
+        {blogIsLive && <Writing />}
+        <Contact />
+      </main>
+      <Footer />
     </>
-  )
+  );
 }
-
-export default App
