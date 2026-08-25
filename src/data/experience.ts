@@ -57,7 +57,7 @@ export const education: Education = {
   degree: "B.Sc. in Computer Science & Engineering",
   school: "University of Information Technology and Sciences (UITS)",
   location: "Dhaka, Bangladesh",
-  year: "2022",
+  year: "2019",
 };
 
 export const leadership = [
