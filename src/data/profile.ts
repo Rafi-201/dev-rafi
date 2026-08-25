@@ -9,7 +9,7 @@ export const profile = {
   phone: "+8801869494543",
 
   // TODO(rafi): confirm this LinkedIn slug matches your profile URL.
-  linkedin: "https://www.linkedin.com/in/tanvir-hasan-rafi/",
+  linkedin: "https://www.linkedin.com/in/tanvir-hasan-rafi-782319175/",
   github: "https://github.com/Rafi-201",
 
   // Served from /public so the download always works (Google Drive blocks
