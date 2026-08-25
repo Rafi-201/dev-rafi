@@ -91,7 +91,7 @@ export default function Contact() {
             rel="noreferrer noopener"
             className="text-muted underline decoration-line underline-offset-4 transition-colors hover:text-ink hover:decoration-accent"
           >
-            https://www.linkedin.com/in/tanvir-hasan-rafi-782319175/
+            LinkedIn ↗
           </a>
           <a
             href={profile.github}
