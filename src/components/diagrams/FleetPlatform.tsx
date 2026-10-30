@@ -9,7 +9,7 @@ import {
 
 /**
  * Serverless fleet operations platform, drawn as a U-turn:
- * devices -> IoT Hub -> Event Hubs -> Functions -> Azure SQL / Cosmos (top row),
+ * devices -> IoT Hub -> Event Hubs -> Functions -> Azure SQL Database (top row),
  * then timer aggregations -> Service Bus -> workers -> APIM -> dashboards
  * (bottom row, right to left), with dead-letter recovery and an IaC plane.
  */
@@ -24,7 +24,7 @@ export default function FleetPlatform() {
         viewBox="0 0 878 446"
         className="h-auto w-full"
         role="img"
-        aria-label="Architecture diagram: connected machines publish to Azure IoT Hub, routed to Event Hubs and consumed by Azure Functions that persist to Azure SQL and Cosmos DB. Timer-triggered aggregations feed high and low priority Service Bus queues for exports, reports on AKS and integrations, with dead-letter recovery. HTTP APIs behind API Management serve dashboards. Everything is provisioned with Terraform and shipped through Azure DevOps."
+        aria-label="Architecture diagram: connected machines publish to Azure IoT Hub, routed to Event Hubs and consumed by Azure Functions that persist to Azure SQL Database. Timer-triggered aggregations feed high and low priority Service Bus queues for exports, reports on AKS and integrations, with dead-letter recovery. HTTP APIs behind API Management serve dashboards. Everything is provisioned with Terraform and shipped through Azure DevOps."
       >
         <ArrowDefs />
 
@@ -54,7 +54,7 @@ export default function FleetPlatform() {
         <Node
           x={cols[4]}
           y={top}
-          label="Azure SQL / Cosmos"
+          label="Azure SQL Database"
           sub="Knex migrations"
           stroke={COLORS.accent}
         />

@@ -48,7 +48,7 @@ export const caseStudies: CaseStudy[] = [
       "Service Bus",
       "AKS / Kubernetes",
       "Docker",
-      "Azure SQL",
+      "Azure SQL Database",
       "Knex",
       "Cosmos DB",
       "Azure Cognitive Search",
