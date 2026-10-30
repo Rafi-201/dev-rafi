@@ -50,8 +50,9 @@ export default function Hero() {
               enterprise clients — ingesting{" "}
               <span className="text-ink">millions of IoT events a day</span> from
               devices across North America, and owning them from technical design
-              through production support. I also build multi-agent AI systems with
-              orchestration, tool calling, and LLM-based workflows.
+              through production support. I bring the same reliability discipline to
+              AI: multi-agent systems with orchestration, MCP tool calling, and
+              LLM-based workflows.
             </motion.p>
 
             <motion.div

@@ -1,10 +1,12 @@
 import Section from "./Section";
 import Reveal from "./Reveal";
 import AgentOrchestration from "./diagrams/AgentOrchestration";
+import FleetPlatform from "./diagrams/FleetPlatform";
 import IotPipeline from "./diagrams/IotPipeline";
 import { caseStudies, sideProjects } from "../data/projects";
 
 const diagrams = {
+  fleet: FleetPlatform,
   iot: IotPipeline,
   agents: AgentOrchestration,
 } as const;
@@ -47,6 +49,12 @@ export default function Work() {
                       </a>
                     ))}
                   </div>
+                )}
+
+                {study.confidential && (
+                  <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.15em] text-dim">
+                    Private / NDA · source not public
+                  </p>
                 )}
 
                 <Diagram />

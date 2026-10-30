@@ -21,7 +21,8 @@ export const experience: Experience[] = [
     period: "March 2023 — Present",
     current: true,
     roles: [
-      { title: "Software Engineer II", period: "Current" },
+      { title: "Senior Software Engineer", period: "Current" },
+      { title: "Software Engineer II", period: "Previously" },
       { title: "Software Engineer Intern", period: "Started as" },
     ],
     summary:
@@ -30,6 +31,9 @@ export const experience: Experience[] = [
       "Design and build event-driven backend systems using Azure Functions and IoT Event Hub, ingesting real-time telemetry from devices across North America at millions of events per day.",
       "Improved Azure SQL query performance by 55% through execution-plan analysis, indexing strategy, query refactoring, caching, and connection tuning.",
       "Built fault-tolerant distributed messaging workflows on Azure Service Bus with retry policies, dead-letter handling, and failed-message isolation.",
+      "Build the serverless backend of an IoT fleet operations platform: 8 Azure Function Apps and 56 functions in a TypeScript monorepo covering telemetry ingestion, aggregation, exports, reports and field-service integrations.",
+      "Designed high/low-priority Service Bus processing with dead-letter and poison-message recovery, and timezone-aware rolling-window aggregations for fleet usage and battery State-of-Health.",
+      "Provision the platform with Terraform and ship it through Azure DevOps pipelines across dev, stage and prod, backed by Jest tests and Husky pre-commit checks.",
       "Instrumented services with Azure Monitor and Application Insights, building operational dashboards that surface bottlenecks and shorten time-to-diagnosis on production incidents.",
       "Review pull requests and mentor junior engineers on architecture, testing, and maintainability, translating business requirements into scalable designs with stakeholders across the USA and Bangladesh.",
     ],

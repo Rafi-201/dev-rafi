@@ -2,7 +2,7 @@ export const profile = {
   name: "Tanvir Hasan",
   shortName: "Tanvir",
   initials: "TH",
-  role: "Backend Software Engineer",
+  role: "Senior Backend Software Engineer",
   specialty: "Cloud-Native & Distributed Systems",
   location: "Dhaka, Bangladesh",
   email: "tanvir.hasan.rafi.00@gmail.com",

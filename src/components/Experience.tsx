@@ -8,7 +8,7 @@ export default function Experience() {
       id="experience"
       label="Experience"
       title="Where I've done the work"
-      description="Three years at one company, growing from intern to Software Engineer II on the same US enterprise account."
+      description="Three years at one company, growing from intern to Senior Software Engineer on the same US enterprise account."
     >
       <div className="divide-y divide-line">
         {experience.map((job) => (
@@ -27,7 +27,11 @@ export default function Experience() {
                 {job.roles.length > 1 && (
                   <span className="text-dim">
                     {" "}
-                    — {job.roles[1].period.toLowerCase()} {job.roles[1].title}
+                    —{" "}
+                    {job.roles
+                      .slice(1)
+                      .map((role) => `${role.period.toLowerCase()} ${role.title}`)
+                      .join(", ")}
                   </span>
                 )}
               </p>

@@ -1,0 +1,29 @@
+# Tanvir Hasan
+
+> Senior backend engineer (Senior Software Engineer, Brain Station 23, Dhaka; promoted from intern through Software Engineer II) with 3+ years building event-driven, cloud-native and serverless systems on Azure for US-based enterprise clients. Also builds multi-agent AI systems with orchestration, MCP tool integration and LLM-based workflows. Open to backend, platform and AI-infrastructure engineering roles.
+
+## Contact
+
+- Email: tanvir.hasan.rafi.00@gmail.com
+- GitHub: https://github.com/Rafi-201
+- LinkedIn: https://www.linkedin.com/in/tanvir-hasan-rafi-782319175/
+- Portfolio: https://rafi-201.github.io/dev-rafi/
+- Resume (PDF): https://rafi-201.github.io/dev-rafi/tanvir-hasan-resume.pdf
+
+## Selected work
+
+- OIP – IoT Fleet Operations Platform (professional, under NDA): event-driven serverless backend for a fleet of connected industrial cleaning machines. 8 Azure Function Apps and 56 functions (29 timer, 14 Service Bus queue, 7 HTTP, 6 Event Hub) in a TypeScript npm-workspaces monorepo. Covers IoT Hub telemetry ingestion via Event Hubs, timezone-aware rolling-window aggregation of usage and battery State-of-Health, high/low-priority Service Bus exports with dead-letter and poison-message recovery, PDF reports on AKS (Puppeteer, Chart.js, Handlebars), field-service integrations, and HTTP APIs behind Azure API Management. Infrastructure as code with Terraform; Azure DevOps CI/CD across dev, stage and prod; Jest tests.
+- Industrial IoT Telemetry Pipeline (professional): ingests millions of device events per day through Azure IoT Event Hub, Azure Functions and Service Bus with retries and dead-letter isolation. Improved Azure SQL query performance by 55% through execution-plan analysis, indexing and query refactoring. Instrumented with Azure Monitor and Application Insights.
+- Multi-Agent AI Orchestration Platform (personal): central orchestrator that routes tasks to specialized agents, with tools exposed over the Model Context Protocol (MCP) and the platform served through FastAPI. Python, LLMs, tool calling, async workers.
+
+## Skills
+
+- Languages: TypeScript, Node.js, Python, C#, Go
+- Cloud: Azure Functions, Azure IoT Hub, Event Hubs, Service Bus, API Management, Key Vault, Blob Storage, Cognitive Search, Azure Monitor, AKS / Kubernetes, Docker, Terraform, Azure DevOps CI/CD
+- Data: Azure SQL Server, Cosmos DB, PostgreSQL, MongoDB, Redis, Knex; query optimization, indexing, schema design
+- AI systems: multi-agent orchestration, LLM workflows, MCP, tool calling, FastAPI
+- Practices: distributed systems, fault tolerance, observability, clean architecture, SOLID, Jest testing, code review and mentoring
+
+## Education
+
+- B.Sc. in Computer Science & Engineering, University of Information Technology and Sciences (UITS), Dhaka, 2019

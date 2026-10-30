@@ -1,6 +1,6 @@
 # dev-rafi
 
-Personal portfolio for **Tanvir Hasan** — Backend Software Engineer, Cloud-Native & Distributed Systems.
+Personal portfolio for **Tanvir Hasan** — Senior Backend Software Engineer, Cloud-Native & Distributed Systems.
 
 Live: https://Rafi-201.github.io/dev-rafi
 
@@ -45,10 +45,11 @@ Search the repo for `TODO(rafi)`:
 3. **`src/components/Contact.tsx`** — paste a free
    [Web3Forms](https://web3forms.com) access key into `WEB3FORMS_ACCESS_KEY`.
    Until then the form falls back to opening a pre-filled email.
-4. **`index.html`** — export `public/og-image.svg` to a 1200×630
-   `public/og-image.png` and uncomment the `og:image` tags so link previews
-   render on LinkedIn.
+4. **`public/og-image.png`** — re-export from `og-image.svg` whenever the
+   headline metrics change (headless Chrome/Edge `--screenshot` at 1200×630).
 5. **`public/tanvir-hasan-resume.pdf`** — replace whenever the resume changes.
+6. **`public/llms.txt`** — plain-text profile for AI assistants and recruiter
+   tools. Hand-written, so update it alongside `src/data/*.ts`.
 
 ## Deployment
 
